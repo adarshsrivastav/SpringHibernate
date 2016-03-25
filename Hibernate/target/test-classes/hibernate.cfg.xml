@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory >
+  <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+  <property name="hibernate.connection.password">admin</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate</property>
+  <property name="hibernate.connection.username">admin</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="hibernate.use_sql_comments">true</property>
+  <property name="hibernate.format_sql">true</property>
+  <property name="hibernate.default_batch_fetch_size">5</property>
+  <property name="hibernate.generate_statistics">true</property>
+  <property name="hibernate.hbm2ddl.auto">update</property>
+  <mapping class="com.app.mvc.hibernate.model.Order"/>
+  <mapping class="com.app.mvc.hibernate.model.Item"/>
+  <mapping class="com.app.mvc.hibernate.model.ItemWithImageAsMap"/>
+  <mapping class="com.app.mvc.hibernate.model.Bid"/>
+  <mapping class="com.app.mvc.hibernate.model.Address"/>
+    <mapping class="com.app.mvc.hibernate.model.Category"/>
+ </session-factory>
+</hibernate-configuration>

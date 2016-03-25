@@ -30,7 +30,7 @@ System.out.println("JDK Proxy "+AopUtils.isJdkDynamicProxy(categoryDAO));
 System.out.println("CGLIB Proxy "
 +AopUtils.isCglibProxy(categoryDAO));
 
-System.out.println(categoryService.find(1L).getItems());
+System.out.println(categoryService.find(2L).getItems());
 while(true){
 	
 }

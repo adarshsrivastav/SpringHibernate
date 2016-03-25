@@ -6,22 +6,13 @@ import javax.sql.DataSource;
 
 import org.hibernate.dialect.MySQL5Dialect;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.orm.hibernate3.HibernateTransactionManager;
+import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
 
 @Configuration
-//<context:componentScan basePackage=""/>
-@ComponentScan(basePackages="com.app.spring")
-// <tx:annotation-driven/>
-@EnableTransactionManagement
 
-//<aop:aspectj-autoproxy/>
-@EnableAspectJAutoProxy
 public class HibernateConfiguration {
 
 	@Bean
@@ -37,15 +28,13 @@ dataSource.setPassword("admin");
 	}
 
 	@Bean
-	public LocalSessionFactoryBean sessionFactoryBean() {
+	public AnnotationSessionFactoryBean sessionFactoryBean() {
 		Properties props = new Properties();
 props.put("hibernate.dialect", MySQL5Dialect.class.getName());
 props.put("hibernate.format_sql", "true");
 props.put("hibernate.show_sql", "true");
 props.put("hibernate.hbm2ddl.auto", "true");
-LocalSessionFactoryBean bean=new LocalSessionFactoryBean();
-
-		
+		AnnotationSessionFactoryBean bean = new AnnotationSessionFactoryBean();
 		bean.setPackagesToScan(
 			new String[]{"com.app.spring.model"});		
 		bean.setHibernateProperties(props);
